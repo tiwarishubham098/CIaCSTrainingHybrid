@@ -1,5 +1,5 @@
 variable "awsprops" {
-    type = "map"
+    type = map
     default = {
     region = "ap-south-1"
     vpc = "vpc-5234832d"
