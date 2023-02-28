@@ -81,6 +81,10 @@ resource "aws_instance" "project-iac" {
   depends_on = [ aws_security_group.project-iac-sg ]
 }
 
+module "rds_example_complete-mysql" {
+  source  = "terraform-aws-modules/rds/aws//examples/complete-mysql"
+  version = "5.7.39"
+}
 
 output "ec2instance" {
   value = aws_instance.project-iac.public_ip
