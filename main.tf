@@ -83,7 +83,7 @@ resource "aws_instance" "project-iac" {
 
 module "rds_example_complete-mysql" {
   source  = "terraform-aws-modules/rds/aws//examples/complete-mysql"
-  version = "5.7.39"
+  version = "5.6.0"
 }
 
 output "ec2instance" {
