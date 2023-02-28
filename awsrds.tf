@@ -42,8 +42,8 @@ resource "aws_db_instance" "rds_instance" {
   publicly_accessible    = true
   skip_final_snapshot    = true
   
-  vpc_security_group_ids = [
-    aws_db_security_group.iac-db-sg
+  vpc_security_group_ids = ["${aws_db_security_group.iac-db-sg.id}"
+    .
   ] 
 
   tags = {
