@@ -21,7 +21,7 @@ resource "aws_db_security_group" "iac-db-sg" {
 
   // To Allow MySQL port
   ingress {
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr = "0.0.0.0/0"
   }
 
   lifecycle {
