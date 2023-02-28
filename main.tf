@@ -2,12 +2,12 @@ variable "awsprops" {
     type = map
     default = {
     region = "ap-south-1"
-    vpc = "vpc-5234832d"
+    vpc = "vpc-04de07d7d900e861b"
     ami = "ami-0f8ca728008ff5af4"
     itype = "t2.micro"
-    subnet = "subnet-81896c8e"
+    subnet = "subnet-03f860555a8ea4854"
     publicip = true
-    keyname = "myseckey"
+    keyname = "iackey"
     secgroupname = "IAC-Sec-Group"
     access_key = "my-access-key"
     secret_key = "my-secret-key"
