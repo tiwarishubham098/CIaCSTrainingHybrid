@@ -72,7 +72,7 @@ resource "aws_instance" "project-iac" {
     volume_type = "gp2"
   }
   tags = {
-    Name ="SERVER01"
+    Name ="IaCAppServer"
     Environment = "DEV"
     OS = "UBUNTU"
     Managed = "IAC"
