@@ -18,21 +18,10 @@ provider "aws" {
 resource "aws_db_security_group" "iac-db-sg" {
   name = "IaCDBSecGrp"
   description = "IaC DB Security Group 3306"
-  vpc_id = "vpc-04de07d7d900e861b"
 
   // To Allow MySQL port
   ingress {
-    from_port = 3306
-    protocol = "tcp"
-    to_port = 3306
     cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  egress {
-    from_port       = 0
-    to_port         = 0
-    protocol        = "-1"
-    cidr_blocks     = ["0.0.0.0/0"]
   }
 
   lifecycle {
