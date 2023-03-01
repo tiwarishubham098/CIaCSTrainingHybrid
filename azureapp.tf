@@ -36,9 +36,10 @@ resource "azurerm_linux_web_app" "webapp" {
   resource_group_name   = azurerm_resource_group.rg.name
   service_plan_id       = azurerm_service_plan.appserviceplan.id
   https_only            = true
-  site_config { 
-    minimum_tls_version = "1.2"
+  application_stack { 
+    php_version = "7.4"
   }
+  site_config {}
 }
 
 #  Deploy code from a public GitHub repo
