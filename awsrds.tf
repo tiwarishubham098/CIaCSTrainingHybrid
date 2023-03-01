@@ -15,13 +15,23 @@ provider "aws" {
   secret_key = "your-secret-key"
 }
 
-resource "aws_db_security_group" "iac-db-sg" {
+resource "aws_security_group" "iac-db-sg" {
   name = "IaCDBSecGrp"
   description = "IaC DB Security Group 3306"
 
-  // To Allow MySQL port
+  // To Allow MySQL access
   ingress {
-    cidr = "0.0.0.0/0"
+    from_port = 3306
+    protocol = "tcp"
+    to_port = 3306
+    cidr_blocks = ["0.0.0.0/0"]
+  } 
+  
+  egress {
+    from_port       = 0
+    to_port         = 0
+    protocol        = "-1"
+    cidr_blocks     = ["0.0.0.0/0"]
   }
 
   lifecycle {
