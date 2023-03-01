@@ -41,7 +41,7 @@ resource "aws_security_group" "iac-db-sg" {
 
 resource "aws_db_instance" "rds_instance" {
   allocated_storage = 20
-  identifier = "rds-terraform"
+  identifier = "iacrds"
   storage_type = "gp2"
   engine = "mysql"
   engine_version = "5.7.41"
@@ -52,9 +52,7 @@ resource "aws_db_instance" "rds_instance" {
   publicly_accessible    = true
   skip_final_snapshot    = true
   
-  vpc_security_group_ids = ["${aws_db_security_group.iac-db-sg.id}"
-    .
-  ] 
+  vpc_security_group_ids = ["${aws_security_group.iac-db-sg.id}"] 
 
   tags = {
     Name = "ExampleRDSServerInstance"
