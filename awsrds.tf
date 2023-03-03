@@ -38,6 +38,22 @@ resource "aws_security_group" "iac-db-sg" {
     create_before_destroy = true
   }
 }
+resource "aws_s3_bucket" "s3" {
+  bucket = "s3-bucket-${var.your_name}"
+  acl    = "private"
+
+  tags = {
+    Name        = "S3 Bucket with init.sql dump"
+    Environment = IaCTesting
+  }
+}
+
+resource "aws_s3_bucket_object" "init_sql" {
+  bucket = aws_s3_bucket.s3.id
+  key    = "init.sql.tar.gz"
+  source = "${path.module}/init.sql.tar.gz00"
+  etag   = filemd5("${path.module}/init.sql.tar.gz00")
+}
 
 resource "aws_db_instance" "rds_instance" {
   allocated_storage = 20
