@@ -53,7 +53,14 @@ resource "aws_db_instance" "rds_instance" {
   skip_final_snapshot    = true
   
   vpc_security_group_ids = ["${aws_security_group.iac-db-sg.id}"] 
-
+  
+  s3_import {
+      source_engine         = "mysql"
+      source_engine_version = "5.7"
+      bucket_name           = iacrdsbckup.s3.id
+      ingestion_role        = arn:aws:iam::404808829238:role/rds-s3-export-role
+    }
+  
   tags = {
     Name = "ExampleRDSServerInstance"
   }
