@@ -55,6 +55,13 @@ resource "aws_db_instance" "rds_instance" {
   vpc_security_group_ids = ["${aws_security_group.iac-db-sg.id}"] 
   
   tags = {
-    Name = "ExampleRDSServerInstance"
+    Name = var.name_tag
   }
+}
+
+
+variable "name_tag" {
+ type        = string
+ description = "Name of the RDS instance"
+ default     = "CIaCT RDS Instance"
 }
