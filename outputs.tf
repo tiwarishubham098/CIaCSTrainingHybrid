@@ -3,7 +3,7 @@ output "hostname" {
   value       = format("https://%s/", azurerm_linux_web_app.webapp.default_hostname)
 }
 
-output "address" {
+output "db_hostname" {
   value       = aws_db_instance.rds_instance.address
   description = "Connect to the database at this endpoint"
 }
