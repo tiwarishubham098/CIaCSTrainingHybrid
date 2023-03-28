@@ -16,7 +16,7 @@ resource "random_integer" "ri" {
 
 # Create the resource group
 resource "azurerm_resource_group" "rg" {
-  name     = "myResourceGroup-${random_integer.ri.result}"
+  name     = "ciacsrg-${random_integer.ri.result}"
   location = "eastus"
 }
 
