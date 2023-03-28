@@ -1,4 +1,4 @@
-output "hostname" {
+output "website_address" {
   description = "The Hostname associated with the App Service"
   value       = format("https://%s/", azurerm_linux_web_app.webapp.default_hostname)
 }
