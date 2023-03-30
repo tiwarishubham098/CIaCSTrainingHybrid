@@ -2,10 +2,10 @@
 provider "azurerm" {
   features {}
 
-  subscription_id   =""
-  tenant_id         =""
-  client_id         =""
-  client_secret     =""
+  subscription_id   ="85cd2292-82e3-4c72-a2d7-1ba724a25176"
+  tenant_id         ="120709b9-1cde-4a68-944a-f6fb5b566111"
+  client_id         ="cfdd0e4a-063c-483b-914a-462ffc43a451"
+  client_secret     ="YNY8Q~6tgGMJ_tvheVvFyXG78SsUbL66-mS.rb45"
 }
 
 # Generate a random integer to create a globally unique name
